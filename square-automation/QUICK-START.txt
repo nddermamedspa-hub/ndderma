@@ -1,0 +1,200 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║         SQUARE AUTOMATION SKILL — QUICK START GUIDE                         ║
+║         ND Derma Med Spa Complete Setup System                              ║
+║                                                                              ║
+║         Time: 20 minutes | Difficulty: Beginner | No coding required        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📋 QUICK START (Copy & Paste Commands)
+
+STEP 1: GET CREDENTIALS (5 min)
+─────────────────────────────────
+1. Go to: https://dashboard.squareup.com
+2. Click: Developers → API Keys
+3. Copy: Production Access Token (sq_live_...)
+4. Copy: Application ID
+5. Navigate to: Locations
+6. Copy: Location ID for your med-spa
+
+STEP 2: INSTALL DEPENDENCIES (2 min)
+──────────────────────────────────────
+$ pip install squareup pandas python-dotenv requests
+
+STEP 3: CREATE .ENV FILE (2 min)
+──────────────────────────────────
+$ cp .env.example .env
+
+Then edit .env with your credentials:
+SQUARE_ACCESS_TOKEN=sq_live_YOUR_TOKEN
+SQUARE_APPLICATION_ID=YOUR_APP_ID
+SQUARE_LOCATION_ID=YOUR_LOCATION_ID
+BRONZE_MONTHLY_PRICE=79.00
+SILVER_MONTHLY_PRICE=149.00
+GOLD_ANNUAL_PRICE=1299.00
+
+STEP 4: TEST CONNECTION (1 min)
+────────────────────────────────
+$ python scripts/test_connection.py
+
+Should show:
+✓ Connection successful!
+✓ Merchant: ND Derma Med Spa
+
+STEP 5: RUN FULL SETUP (5 min)
+─────────────────────────────────
+$ python scripts/full_setup.py
+
+What it creates:
+✓ 45+ aesthetic services
+✓ 3 membership plans (Bronze/Silver/Gold)
+✓ Staff members (optional)
+✓ Webhooks (optional)
+
+STEP 6: VERIFY IN SQUARE DASHBOARD
+──────────────────────────────────────
+1. Go to: https://dashboard.squareup.com
+2. Check: Catalog → Items (should show 45+ services)
+3. Check: Subscriptions → Plans (should show 3 memberships)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 FILE STRUCTURE
+
+square-automation/
+├── SKILL.md ........................ Claude skill documentation
+├── README.md ....................... Full documentation
+├── SETUP-GUIDE.md .................. Step-by-step setup
+├── QUICK-START.txt ................. This file
+├── .env.example .................... Copy to .env
+├── scripts/
+│   ├── test_connection.py .......... Test your credentials
+│   ├── create_services.py .......... Create 45+ treatments
+│   ├── create_memberships.py ....... Create 3 membership plans
+│   ├── create_staff.py ............. Add your team members
+│   ├── setup_webhooks.py ........... Automated confirmations
+│   ├── generate_report.py .......... Create summary
+│   └── full_setup.py ............... Run everything
+└── references/
+    ├── service_catalog.csv
+    ├── membership_plans.csv
+    └── webhook_events.json
+
+═══════════════════════════════════════════════════════════════════════════════
+
+💰 WHAT YOU GET
+
+✅ 45+ Aesthetic Services
+   • Advanced Laser & Energy Devices (12)
+   • Facial Treatments (12)
+   • Injectables (6)
+   • Hair Restoration (5)
+   • Body Treatments (6)
+   • Vitamin & Wellness (4)
+
+✅ 3 Membership Plans
+   • Bronze: $79/month (1 service @ 20% off)
+   • Silver: $149/month (2 services @ 25% off)
+   • Gold: $1,299/year (12 services @ 30% off)
+
+✅ Full Square Integration
+   • Online appointment booking
+   • Payment processing
+   • Customer database
+   • Automated confirmations
+   • Webhook system
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔐 SECURITY CHECKLIST
+
+✅ DO:
+   • Keep .env file private
+   • Never commit to Git
+   • Use production credentials only
+   • Rotate API keys monthly
+   • Keep access token secure
+
+❌ DON'T:
+   • Hardcode credentials in scripts
+   • Share .env via email
+   • Use same key for dev/prod
+   • Commit to GitHub
+   • Share with unauthorized users
+
+Add to .gitignore:
+.env
+*.env
+secrets.json
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🚀 NEXT STEPS
+
+1. ✅ Get Square credentials
+2. ✅ Install dependencies: pip install squareup pandas python-dotenv requests
+3. ✅ Create .env file: cp .env.example .env
+4. ✅ Fill in credentials
+5. ✅ Test: python scripts/test_connection.py
+6. ✅ Run setup: python scripts/full_setup.py
+7. ✅ Verify in Square Dashboard
+8. 🔄 Integrate into website (see 05-square-integration.md)
+9. 🧪 Test booking & payment
+10. 🚀 Go live!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📞 SUPPORT
+
+Square Documentation:
+  https://developer.squareup.com
+
+ND Derma Documentation:
+  • SKILL.md - Skill documentation
+  • README.md - Full reference
+  • SETUP-GUIDE.md - Step-by-step
+  • 05-square-integration.md - Technical integration
+  • 06-membership-pricing-template.md - Operations
+
+Common Issues:
+  • Connection failed? Check .env file
+  • Python not found? Install from python.org
+  • Import error? Run: pip install squareup pandas python-dotenv
+  • Services not created? Check setup.log file
+  • Need help? See SETUP-GUIDE.md troubleshooting section
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⏱️  TIMING BREAKDOWN
+
+Step 1 (Credentials):     5 minutes
+Step 2 (Dependencies):    2 minutes
+Step 3 (.env setup):      2 minutes
+Step 4 (Test):            1 minute
+Step 5 (Full Setup):      5 minutes
+Step 6 (Verification):    2 minutes
+────────────────────────
+TOTAL:                   ~20 minutes
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ YOU'RE READY!
+
+Everything you need is in this directory. Follow the quick start steps above,
+and your Square account will be fully configured with:
+
+✓ All aesthetic services
+✓ Membership system
+✓ Payment processing
+✓ Customer management
+✓ Automated notifications
+
+For detailed instructions: SETUP-GUIDE.md
+For technical details: SKILL.md or 05-square-integration.md
+
+Good luck! 🎉
+
+═══════════════════════════════════════════════════════════════════════════════
+Last Updated: March 24, 2026
+Status: Ready for Production

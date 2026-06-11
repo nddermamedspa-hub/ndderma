@@ -1,0 +1,4 @@
+plan_id,name,price,billing_cycle,services_per_period,discount_percent,benefits
+IQWKNTTZVYJJJD7DLTTLFJEL,Bronze Monthly Membership,79.0,MONTHLY,1,20,"Priority booking, Email consultation support"
+NLG6RSXCTUBTG7NE2QGSQSZQ,Silver Monthly Membership,149.0,MONTHLY,2,25,"48-hour priority booking, Monthly consultation, Member events"
+JPTQJ7OHSVIEFS4J7QWY6RYM,Gold Annual Membership,1299.0,ANNUAL,12,30,"VIP booking priority, Quarterly reviews, Complimentary add-ons, Loyalty rewards"

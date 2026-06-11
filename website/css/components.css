@@ -1,0 +1,418 @@
+/* ═══════════════════════════════════════════════════════════════
+   ND DERMA MED SPA — Components CSS
+   JS-dependent patterns + keyframes that Tailwind utilities can't cover.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. SCROLL REVEAL ─────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+[data-reveal="left"]  { transform: translateX(-24px); }
+[data-reveal="right"] { transform: translateX(24px); }
+[data-reveal][data-reveal-delay="1"] { transition-delay: 0.1s; }
+[data-reveal][data-reveal-delay="2"] { transition-delay: 0.2s; }
+[data-reveal][data-reveal-delay="3"] { transition-delay: 0.3s; }
+[data-reveal][data-reveal-delay="4"] { transition-delay: 0.4s; }
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── 2. HERO ANIMATIONS ───────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scrollLineGrow {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.hero-eyebrow   { animation: heroFadeUp 0.8s 0.2s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-headline  { animation: heroFadeUp 0.9s 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-sub       { animation: heroFadeUp 0.9s 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-actions   { animation: heroFadeUp 0.9s 0.75s cubic-bezier(0.22,1,0.36,1) both; }
+.hero-scroll-line { animation: scrollLineGrow 2s 1.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero-headline, .hero-sub, .hero-actions { animation: none; }
+  .hero-scroll-line { animation: none; }
+}
+
+#hero-immersive .hero-eyebrow,
+#hero-immersive .hero-headline {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.75),
+    0 2px 24px rgba(0, 0, 0, 0.45);
+}
+#hero-immersive .hero-sub {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* ── 3. STICKY HEADER ─────────────────────────────────────────── */
+.site-header {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+.site-header.scrolled {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+}
+
+/* Light nav over dark hero (home + inner pages with data-header-dark) */
+.site-header.header--on-dark {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none;
+  border-bottom-color: transparent;
+}
+.site-header.header--on-dark.scrolled {
+  box-shadow: none;
+}
+.site-header.header--on-dark .site-header-logo img {
+  filter: brightness(0) invert(1);
+}
+.site-header.header--on-dark .nav-primary a {
+  color: rgba(255,255,255,0.92);
+}
+.site-header.header--on-dark .nav-primary a:hover,
+.site-header.header--on-dark .nav-primary a.active {
+  color: #DACDC4;
+}
+.site-header.header--on-dark .nav-primary a::after {
+  background: #DACDC4;
+}
+.site-header.header--on-dark .header-book-btn {
+  background: transparent;
+  border-color: rgba(255,255,255,0.55);
+  color: #fff;
+}
+.site-header.header--on-dark .header-book-btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
+.site-header.header--on-dark .hamburger-line {
+  background: rgba(255,255,255,0.9);
+}
+body.nav-open .site-header.header--on-dark {
+  background-color: rgba(250,250,249,0.98);
+  backdrop-filter: blur(8px);
+}
+body.nav-open .site-header.header--on-dark .site-header-logo img {
+  filter: none;
+}
+body.nav-open .site-header.header--on-dark .nav-primary a {
+  color: #4B4B4D;
+}
+body.nav-open .site-header.header--on-dark .hamburger-line {
+  background: #4B4B4D;
+}
+body.nav-open .site-header.header--on-dark .header-book-btn {
+  background: #C9A84C;
+  border-color: #C9A84C;
+  color: #fff;
+}
+body.nav-open .site-header.header--on-dark .header-book-btn:hover {
+  background: #AE9581;
+  border-color: #AE9581;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header.header--on-dark .site-header-logo img {
+    transition: none;
+  }
+}
+
+/* ── 4. MOBILE NAV ────────────────────────────────────────────── */
+.mobile-nav {
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+/* ── 5. PRIMARY NAV ACTIVE UNDERLINE ──────────────────────────── */
+.nav-primary a {
+  position: relative;
+}
+.nav-primary a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #B9A885;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-primary a:hover::after,
+.nav-primary a.active::after {
+  transform: scaleX(1);
+}
+
+/* ── 6. SERVICE ACCORDION (max-height animation) ──────────────── */
+.service-item .service-item__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s cubic-bezier(0.22,1,0.36,1), padding 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.service-item[open] .service-item__body {
+  max-height: 800px;
+}
+/* Hide native details marker */
+.service-item > summary { list-style: none; }
+.service-item > summary::-webkit-details-marker { display: none; }
+
+/* ── 7. SERVICE TAB NAV ACTIVE STATE ──────────────────────────── */
+.services-tab-nav a.active {
+  color: #B9A885;
+  border-bottom-color: #B9A885;
+}
+
+/* ── 8. BOOKING WIZARD — STEP TRANSITIONS ─────────────────────── */
+@keyframes stepEnter {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes stepLeave {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-16px); }
+}
+.booking-step            { display: none; }
+.booking-step.active     { display: block; animation: stepEnter 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+.booking-step.is-leaving { display: block; animation: stepLeave 0.25s ease-in both; }
+@media (prefers-reduced-motion: reduce) {
+  .booking-step.active     { animation: none; }
+  .booking-step.is-leaving { animation: none; }
+}
+
+/* ── 9. BOOKING PROGRESS STEPS ────────────────────────────────── */
+.progress-step {
+  position: relative;
+}
+/* Connector line between steps */
+.progress-step::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: calc(50% + 16px);
+  right: calc(-50% + 16px);
+  height: 1px;
+  background: #D1CEC6;
+  z-index: 0;
+}
+.progress-step:last-child::after { display: none; }
+.progress-step.completed::after  { background: #B9A885; }
+
+.step-num {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.progress-step.active    .step-num { background-color: #C9A84C; color: #fff; transform: scale(1.12); }
+.progress-step.completed .step-num { background-color: #AE9581; color: #fff; }
+.progress-step.active    .step-label { color: #B9A885; }
+.progress-step.completed .step-label { color: #B9A885; }
+
+/* ── 10. SELECTION CARDS (radio/checkbox) ─────────────────────── */
+.selection-card input[type="radio"],
+.selection-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.selection-card input:checked + .selection-card__inner {
+  border-color: #B9A885;
+  background-color: rgba(185,168,133,0.08);
+}
+
+/* ── 11. BEFORE/AFTER FILTER ──────────────────────────────────── */
+.ba-filter-btn.active {
+  color: #B9A885;
+  border-bottom-color: #B9A885;
+}
+.ba-category-group.hidden { display: none; }
+
+/* ── 12. SPOTLIGHT / GLOW CARDS ───────────────────────────────── */
+[data-glow] {
+  --glow-base:    40;
+  --glow-spread:  60;
+  --glow-border:  2px;
+  --glow-size:    220px;
+  --glow-x:   0;
+  --glow-y:   0;
+  --glow-xp:  0;
+  --glow-hue: calc(var(--glow-base) + (var(--glow-xp) * var(--glow-spread)));
+
+  position: relative;
+  background-image: radial-gradient(
+    var(--glow-size) var(--glow-size)
+    at calc(var(--glow-x) * 1px) calc(var(--glow-y) * 1px),
+    hsl(var(--glow-hue) 80% 72% / 0.12),
+    transparent
+  );
+  background-size: calc(100% + (2 * var(--glow-border))) calc(100% + (2 * var(--glow-border)));
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  border: var(--glow-border) solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+[data-glow]::before,
+[data-glow]::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: calc(var(--glow-border) * -1);
+  border: var(--glow-border) solid transparent;
+  background-attachment: fixed;
+  background-size: calc(100% + (2 * var(--glow-border))) calc(100% + (2 * var(--glow-border)));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  -webkit-mask-clip: padding-box, border-box;
+  mask-clip: padding-box, border-box;
+  -webkit-mask-composite: xor;
+  mask-composite: intersect;
+}
+[data-glow]::before {
+  background-image: radial-gradient(
+    calc(var(--glow-size) * 0.7) calc(var(--glow-size) * 0.7)
+    at calc(var(--glow-x) * 1px) calc(var(--glow-y) * 1px),
+    hsl(var(--glow-hue) 90% 62% / 0.9),
+    transparent 100%
+  );
+  filter: brightness(2);
+}
+[data-glow]::after {
+  background-image: radial-gradient(
+    calc(var(--glow-size) * 0.45) calc(var(--glow-size) * 0.45)
+    at calc(var(--glow-x) * 1px) calc(var(--glow-y) * 1px),
+    hsl(0 0% 100% / 0.65),
+    transparent 100%
+  );
+}
+.category-card[data-glow] {
+  border-left-width: var(--glow-border);
+}
+.category-card[data-glow]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px -8px rgba(0,0,0,0.14);
+  border-color: transparent;
+}
+
+/* ── 13. PARALLAX HERO ────────────────────────────────────────── */
+.hero-bg,
+.parallax-bg-layer {
+  position: absolute;
+  inset: -10%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ── 14. CUSTOM SELECT ARROW ──────────────────────────────────── */
+.select-custom {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B9A885' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ── 15. TESTIMONIAL QUOTE MARK ───────────────────────────────── */
+.testimonial-quote::before {
+  content: '\201C';
+  font-family: 'Bonita', 'Playfair Display', Georgia, serif;
+  font-size: 84px;
+  line-height: 1;
+  color: #B9A885;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: -0.5rem;
+}
+
+/* ── 16. SCROLLBAR HIDE ───────────────────────────────────────── */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── 17. HERO SCROLL INDICATOR ────────────────────────────────── */
+a.hero-scroll {
+  text-decoration: none;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.65), rgba(255,255,255,0.2));
+  transform-origin: top;
+}
+
+/* ── 18. HERO COLLAGE (welcome section) ───────────────────────── */
+.hero-collage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.hero-collage__tile {
+  will-change: transform;
+}
+@media (min-width: 1024px) {
+  .hero-collage {
+    display: grid;
+    grid-template-columns: 26% 46% 24%;
+    grid-template-rows: minmax(96px, auto) 1fr minmax(112px, auto);
+    gap: 0.85rem;
+    align-items: stretch;
+    min-height: 480px;
+  }
+  .hero-collage__tile--tl {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+  }
+  .hero-collage__tile--center {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    min-height: 440px;
+    z-index: 1;
+  }
+  .hero-collage__tile--bl {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    margin-top: -3.25rem;
+    z-index: 2;
+    align-self: end;
+    max-width: 100%;
+  }
+  .hero-collage__tile--right {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    min-height: 400px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-collage__tile {
+    will-change: auto;
+  }
+}
+
+/* ── 19. WELCOME SECTION SELECTION ───────────────────────────── */
+.bg-light ::selection {
+  background-color: rgb(213 184 166);
+  color: rgb(245 240 231);
+}

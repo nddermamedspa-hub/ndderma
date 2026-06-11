@@ -1,0 +1,69 @@
+{
+  "_comment": "ND DERMA MED SPA — Price Configuration (Python / Square scripts source of truth). Edit prices here, then re-run create_services.py to sync to Square.",
+
+  "memberships": {
+    "bronze": { "price": 79.00,   "period": "month", "description": "1 service/month @ 20% off" },
+    "silver": { "price": 149.00,  "period": "month", "description": "2 services/month @ 25% off" },
+    "gold":   { "price": 1299.00, "period": "year",  "description": "12 services/year @ 30% off" }
+  },
+
+  "services": {
+    "Advanced Laser & Energy Devices": {
+      "Laser Skin Rejuvenation":           { "price": 200.00, "duration": 60 },
+      "Laser for Pigmentation":            { "price": 175.00, "duration": 45 },
+      "Laser for Acne & Acne Scars":       { "price": 200.00, "duration": 60 },
+      "Laser Hair Removal":                { "price": 150.00, "duration": 45 },
+      "Ultraformer Full Face Lift":        { "price": 350.00, "duration": 60 },
+      "Ultraformer Face + Neck":           { "price": 400.00, "duration": 75 },
+      "Ultraformer Double Chin":           { "price": 250.00, "duration": 45 },
+      "Ultraformer Body Tightening":       { "price": 300.00, "duration": 60 },
+      "Morpheus8 Face":                    { "price": 350.00, "duration": 60 },
+      "Morpheus8 Neck":                    { "price": 250.00, "duration": 45 },
+      "Morpheus8 Body":                    { "price": 400.00, "duration": 75 },
+      "Morpheus8 Acne Scars":              { "price": 300.00, "duration": 60 }
+    },
+    "Facial Treatments": {
+      "Hydrafacial / Deep Hydration":                { "price": 150.00, "duration": 45 },
+      "Chemical Peels":                              { "price": 125.00, "duration": 45 },
+      "Microneedling":                               { "price": 200.00, "duration": 60 },
+      "Microneedling + Exosomes":                    { "price": 300.00, "duration": 60 },
+      "Glass Skin Facial":                           { "price": 175.00, "duration": 60 },
+      "Acne Control Facial":                         { "price": 125.00, "duration": 50 },
+      "Anti-Aging Facial":                           { "price": 200.00, "duration": 75 },
+      "Dermaplaning":                                { "price": 75.00,  "duration": 30 },
+      "Hydra Lips":                                  { "price": 100.00, "duration": 30 },
+      "Smart Microcurrent":                          { "price": 150.00, "duration": 45 },
+      "Lash Lift":                                   { "price": 75.00,  "duration": 45 },
+      "Brows Tint":                                  { "price": 50.00,  "duration": 30 }
+    },
+    "Injectables": {
+      "Full Face Botox":       { "price": 200.00, "duration": 30 },
+      "Forehead Lines":        { "price": 100.00, "duration": 20 },
+      "Frown Lines":           { "price": 100.00, "duration": 20 },
+      "Crow's Feet":           { "price": 100.00, "duration": 20 },
+      "Lip Enhancement":       { "price": 250.00, "duration": 30 },
+      "Jawline Contouring":    { "price": 300.00, "duration": 30 }
+    },
+    "Hair Restoration": {
+      "Hair Loss Treatment":           { "price": 250.00, "duration": 60 },
+      "Scalp Microneedling":           { "price": 150.00, "duration": 45 },
+      "Exosomes for Hair Restoration": { "price": 400.00, "duration": 60 },
+      "Growth Factor Therapy":         { "price": 350.00, "duration": 60 },
+      "Hair Regeneration Therapy":     { "price": 500.00, "duration": 90 }
+    },
+    "Body Treatments": {
+      "Radiofrequency Skin Tightening":       { "price": 300.00, "duration": 60 },
+      "Ultrasound Fat Reduction":             { "price": 350.00, "duration": 60 },
+      "Body Sculpting":                       { "price": 300.00, "duration": 60 },
+      "Cellulite Reduction":                  { "price": 250.00, "duration": 60 },
+      "EMS Muscle Stimulation":               { "price": 200.00, "duration": 45 },
+      "Spray Tanning (Machine-Based Bronzing)": { "price": 75.00, "duration": 30 }
+    },
+    "Vitamin & Wellness": {
+      "Vitamin Injections":          { "price": 75.00,  "duration": 15 },
+      "IV Therapy":                  { "price": 150.00, "duration": 45 },
+      "Anti-Aging Vitamin Protocol": { "price": 125.00, "duration": 30 },
+      "Fat Burning Boosters":        { "price": 100.00, "duration": 20 }
+    }
+  }
+}

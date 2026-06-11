@@ -1,0 +1,196 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                  SQUARE AUTOMATION — QUICK COMMAND REFERENCE                ║
+║                     ND Derma Med Spa Setup Automation                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📍 LOCATION: ~/path/to/square-automation/
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 1: INITIAL SETUP (One-time)
+═══════════════════════════════════════════════════════════════════════════════
+
+# Create credentials file from template
+cp .env.example .env
+
+# Edit the file and add your Square credentials
+nano .env
+# (or use your preferred editor: code .env, vim .env, etc.)
+
+# Install Python dependencies
+pip install squareup pandas python-dotenv requests
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 2: TEST CONNECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+# Verify your credentials work
+python scripts/test_connection.py
+
+# Expected output:
+# ✓ Connection successful!
+# ✓ Merchant: ND Derma Med Spa
+# ✓ Location: New York
+# ✓ Ready to proceed with setup
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 3: RUN FULL SETUP (5-10 minutes)
+═══════════════════════════════════════════════════════════════════════════════
+
+# Run everything automatically (RECOMMENDED)
+python scripts/full_setup.py
+
+# This will:
+# ✓ Create 45+ aesthetic services
+# ✓ Create 3 membership plans (Bronze/Silver/Gold)
+# ✓ Set up staff (if staff.csv exists)
+# ✓ Configure webhooks (if WEBHOOK_URL in .env)
+# ✓ Generate summary report
+
+═══════════════════════════════════════════════════════════════════════════════
+STEP 4: VERIFY IN SQUARE DASHBOARD
+═══════════════════════════════════════════════════════════════════════════════
+
+# Services Created
+Square Dashboard → Catalog → Items
+☐ 45+ items showing (Laser, Morpheus8, Facials, etc.)
+☐ Each has pricing and duration
+
+# Memberships Created
+Square Dashboard → Subscriptions → Plans
+☐ Bronze Monthly ($79.00/month)
+☐ Silver Monthly ($149.00/month)
+☐ Gold Annual ($1,299.00/year)
+
+═══════════════════════════════════════════════════════════════════════════════
+OPTIONAL: INDIVIDUAL SCRIPTS (If you want step-by-step control)
+═══════════════════════════════════════════════════════════════════════════════
+
+# Test connection only
+python scripts/test_connection.py
+
+# Create services only
+python scripts/create_services.py
+
+# Create memberships only
+python scripts/create_memberships.py
+
+# Create staff (requires staff.csv)
+python scripts/create_staff.py --staff-file staff.csv
+
+# Setup webhooks (requires WEBHOOK_URL in .env)
+python scripts/setup_webhooks.py
+
+# Generate report
+python scripts/generate_report.py
+
+═══════════════════════════════════════════════════════════════════════════════
+OPTIONAL: CUSTOMIZE PRICING
+═══════════════════════════════════════════════════════════════════════════════
+
+# Edit .env file and change these values:
+BRONZE_MONTHLY_PRICE=79.00      # Change to your price
+SILVER_MONTHLY_PRICE=149.00     # Change to your price
+GOLD_ANNUAL_PRICE=1299.00       # Change to your price
+
+# Then rerun:
+python scripts/create_memberships.py
+
+═══════════════════════════════════════════════════════════════════════════════
+📁 OUTPUT FILES
+═══════════════════════════════════════════════════════════════════════════════
+
+After running full_setup.py, these files will be created:
+
+services_created.csv          # List of all 45+ services created
+memberships_created.csv       # List of 3 membership plans
+setup.log                     # Detailed log of everything that happened
+
+View created services:
+cat services_created.csv
+
+View memberships:
+cat memberships_created.csv
+
+═══════════════════════════════════════════════════════════════════════════════
+🔐 SECURITY REMINDERS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ DO:
+  - Keep .env file secure (never share it)
+  - Never commit .env to Git
+  - Use production credentials only
+  - Rotate API keys monthly
+
+❌ DON'T:
+  - Share .env file via email
+  - Use same key for dev/prod
+  - Commit credentials to GitHub
+  - Hardcode credentials in scripts
+
+═══════════════════════════════════════════════════════════════════════════════
+⏱️ TIMING BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════════
+
+Get Credentials ..................... 5 min
+Setup .env File ..................... 2 min
+Test Connection ..................... 1 min
+Run Full Setup ...................... 5-10 min
+Verify in Square Dashboard .......... 2 min
+───────────────────────────────────────────
+TOTAL ............................. ~20 min
+
+═══════════════════════════════════════════════════════════════════════════════
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+"SQUARE_ACCESS_TOKEN not found"
+→ Check that .env file exists and has your token
+
+"Connection failed: Invalid token"
+→ Go to Square Dashboard → Developers → API Keys
+→ Copy the exact token (starts with sq_live_)
+→ Update .env and run test again
+
+"Location not found"
+→ Go to Square Dashboard → Locations
+→ Copy exact Location ID
+→ Update SQUARE_LOCATION_ID in .env
+
+"python: command not found"
+→ Python not installed or not in PATH
+→ Download from python.org and reinstall
+→ Select "Add Python to PATH"
+
+"ModuleNotFoundError: No module named 'squareup'"
+→ pip install squareup pandas python-dotenv requests
+
+═══════════════════════════════════════════════════════════════════════════════
+📞 RESOURCES
+═══════════════════════════════════════════════════════════════════════════════
+
+Square Documentation:
+  https://developer.squareup.com
+
+This Automation:
+  SETUP-GUIDE.md     (Detailed step-by-step)
+  README.md          (Full reference)
+  SKILL.md           (Technical documentation)
+
+═══════════════════════════════════════════════════════════════════════════════
+✨ READY TO START?
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Open SETUP-GUIDE.md for detailed instructions
+2. Get your Square credentials (5 minutes)
+3. Create .env file and add credentials (2 minutes)
+4. Run: python scripts/full_setup.py (5-10 minutes)
+5. Verify in Square Dashboard (2 minutes)
+
+THAT'S IT! Your Square merchant account is ready.
+
+═══════════════════════════════════════════════════════════════════════════════
+Last Updated: March 24, 2026
+Status: Ready for Production
+Estimated Time: ~20 minutes
+Difficulty: Beginner-friendly (no coding required)
+═══════════════════════════════════════════════════════════════════════════════

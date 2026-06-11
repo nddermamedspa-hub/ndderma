@@ -1,0 +1,46 @@
+name,duration,price,category
+Laser Skin Rejuvenation,60,200.0,Advanced Laser & Energy Devices
+Laser for Pigmentation,45,175.0,Advanced Laser & Energy Devices
+Laser for Acne & Acne Scars,60,200.0,Advanced Laser & Energy Devices
+Laser Hair Removal,45,150.0,Advanced Laser & Energy Devices
+Ultraformer Full Face Lift,60,350.0,Advanced Laser & Energy Devices
+Ultraformer Face + Neck,75,400.0,Advanced Laser & Energy Devices
+Ultraformer Double Chin,45,250.0,Advanced Laser & Energy Devices
+Ultraformer Body Tightening,60,300.0,Advanced Laser & Energy Devices
+Morpheus8 Face,60,350.0,Advanced Laser & Energy Devices
+Morpheus8 Neck,45,250.0,Advanced Laser & Energy Devices
+Morpheus8 Body,75,400.0,Advanced Laser & Energy Devices
+Morpheus8 Acne Scars,60,300.0,Advanced Laser & Energy Devices
+Hydrafacial / Deep Hydration,45,150.0,Facial Treatments
+Chemical Peels,45,125.0,Facial Treatments
+Microneedling,60,200.0,Facial Treatments
+Microneedling + Exosomes,60,300.0,Facial Treatments
+Glass Skin Facial,60,175.0,Facial Treatments
+Acne Control Facial,50,125.0,Facial Treatments
+Anti-Aging Facial,75,200.0,Facial Treatments
+Dermaplaning,30,75.0,Facial Treatments
+Hydra Lips,30,100.0,Facial Treatments
+Smart Microcurrent,45,150.0,Facial Treatments
+Lash Lift,45,75.0,Facial Treatments
+Brows Tint,30,50.0,Facial Treatments
+Full Face Botox,30,200.0,Injectables
+Forehead Lines,20,100.0,Injectables
+Frown Lines,20,100.0,Injectables
+Crow's Feet,20,100.0,Injectables
+Lip Enhancement,30,250.0,Injectables
+Jawline Contouring,30,300.0,Injectables
+Hair Loss Treatment,60,250.0,Hair Restoration
+Scalp Microneedling,45,150.0,Hair Restoration
+Exosomes for Hair Restoration,60,400.0,Hair Restoration
+Growth Factor Therapy,60,350.0,Hair Restoration
+Hair Regeneration Therapy,90,500.0,Hair Restoration
+Radiofrequency Skin Tightening,60,300.0,Body Treatments
+Ultrasound Fat Reduction,60,350.0,Body Treatments
+Body Sculpting,60,300.0,Body Treatments
+Cellulite Reduction,60,250.0,Body Treatments
+EMS Muscle Stimulation,45,200.0,Body Treatments
+Spray Tanning (Machine-Based Bronzing),30,75.0,Body Treatments
+Vitamin Injections,15,75.0,Vitamin & Wellness
+IV Therapy,45,150.0,Vitamin & Wellness
+Anti-Aging Vitamin Protocol,30,125.0,Vitamin & Wellness
+Fat Burning Boosters,20,100.0,Vitamin & Wellness
